@@ -16,6 +16,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ru.geekbrains.lesson_1314_3_1_main.R
 import ru.geekbrains.lesson_1314_3_1_main.databinding.FragmentMainBinding
 import ru.geekbrains.lesson_1314_3_1_main.view.MainActivity
+import ru.geekbrains.lesson_1314_3_1_main.view.ships.ChipsFragment
 import ru.geekbrains.lesson_1314_3_1_main.viewmodel.PODData
 import ru.geekbrains.lesson_1314_3_1_main.viewmodel.PODViewModel
 
@@ -158,7 +159,7 @@ class PODFragment : Fragment() {
                 Toast.makeText(context, "Favorite", Toast.LENGTH_SHORT).show()
             }
             R.id.app_bar_settings -> {
-                Toast.makeText(context, "Settings", Toast.LENGTH_SHORT).show()
+                requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,ChipsFragment.newInstance()).addToBackStack("").commit()
             }
             // у нашего бургера такой вот id внутри android
             android.R.id.home -> {
