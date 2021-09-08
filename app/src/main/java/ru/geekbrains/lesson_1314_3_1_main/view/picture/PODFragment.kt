@@ -100,7 +100,7 @@ class PODFragment : Fragment() {
             startActivity(i)
         }
         bottomSheetBehavior = BottomSheetBehavior.from(binding.includeLayout.bottomSheetContainer)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
         /*bottomSheetBehavior.addBottomSheetCallback(
             object :
                 BottomSheetBehavior.BottomSheetCallback() {
@@ -134,6 +134,8 @@ class PODFragment : Fragment() {
                 binding.imageView.load(data.serverResponseData.url) { // квадратное становится прямоугольным
                     error(R.drawable.ic_load_error_vector)
                 }
+                binding.includeLayout.bottomSheetDescriptionHeader.text =data.serverResponseData.explanation // так
+                binding.includeLayout.bottomSheetDescription.text =data.serverResponseData.explanation // или так, дальше уже на ваш вкус 
             }
         }
     }
