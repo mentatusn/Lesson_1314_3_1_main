@@ -21,6 +21,7 @@
         <item name="shapeAppearanceMediumComponent">@style/AppShapeAppearance.MediumComponent</item>
         <item name="chipStyle">@style/ChipTextAppearance.Base</item>
         <item name="textInputStyle">@style/CustomOutlinedBox</item>
+        <item name="android:colorBackground">@color/myColorHack</item>
 
     </style>
 
@@ -54,7 +55,6 @@
         <item name="counterOverflowTextColor">@color/black</item>
         <item name="endIconMode">custom</item>
         <item name="endIconDrawable">@drawable/ic_wikipedia</item>
-        <item name="boxStrokeColor">?myStrokeColor</item>
     </style>
 
     <style name="Theme.Lesson_1314_3_1_main.theme1"></style>

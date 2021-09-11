@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         if(savedInstanceState==null){
-            //supportFragmentManager.beginTransaction().replace(R.id.container,PODFragment.newInstance()).commit()
-            supportFragmentManager.beginTransaction().replace(R.id.container,SettingsFragment.newInstance()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.container,PODFragment.newInstance()).commit()
+           // supportFragmentManager.beginTransaction().replace(R.id.container,SettingsFragment.newInstance()).commit()
         }
        /* btn.setOnclickListenter{
              setMyTheme()
