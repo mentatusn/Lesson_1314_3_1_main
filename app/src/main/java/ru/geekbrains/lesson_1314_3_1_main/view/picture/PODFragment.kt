@@ -103,25 +103,11 @@ class PODFragment : Fragment() {
         }
         bottomSheetBehavior = BottomSheetBehavior.from(binding.includeLayout.bottomSheetContainer)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
-        /*bottomSheetBehavior.addBottomSheetCallback(
-            object :
-                BottomSheetBehavior.BottomSheetCallback() {
-                override fun onStateChanged(bottomSheet: View, newState: Int) {
-                    when (newState) {
-                        BottomSheetBehavior.STATE_DRAGGING -> TODO("not implemented")
-                        BottomSheetBehavior.STATE_COLLAPSED -> TODO("not implemented")
-                        BottomSheetBehavior.STATE_EXPANDED -> TODO("not implemented")
-                        BottomSheetBehavior.STATE_HALF_EXPANDED -> TODO("not implemented")
-                        BottomSheetBehavior.STATE_HIDDEN -> TODO("not implemented")
-                        BottomSheetBehavior.STATE_SETTLING -> TODO("not implemented")
-                    }
-                }
 
-                override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    TODO("not implemented")
-                }
-            }
-        )*/
+        /*binding.testYoutube.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW,Uri.parse("https://www.youtube.com/watch?v=MRLyREkZles")))
+        }*/
+
     }
 
     private fun renderData(data: PODData) {
