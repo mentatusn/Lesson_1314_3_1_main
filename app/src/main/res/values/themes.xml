@@ -23,10 +23,14 @@
         <item name="chipStyle">@style/ChipTextAppearance.Base</item>
         <item name="textInputStyle">@style/CustomOutlinedBox</item>
         <item name="android:colorBackground">@color/myColorHack</item>
+        <item name="bottomNavigationStyle">@style/MyBottomNavigationStyle</item>
 
     </style>
 
 
+    <style name="MyBottomNavigationStyle" parent="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface">
+
+    </style>
     <style name="ChipStyle.Base" parent="@style/Widget.MaterialComponents.Chip.Action">
         <item name="android:textAppearance">@style/ChipTextAppearance.Base</item>
         <item name="chipBackgroundColor">@android:color/holo_blue_light</item>
