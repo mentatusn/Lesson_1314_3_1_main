@@ -12,13 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lesson_1314_3_1_main">
         <activity
-            android:name=".view.MainActivity"
+            android:name=".api.ApiActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".view.MainActivity"
+            android:exported="true">
         </activity>
         <meta-data
             android:name="preloaded_fonts"
