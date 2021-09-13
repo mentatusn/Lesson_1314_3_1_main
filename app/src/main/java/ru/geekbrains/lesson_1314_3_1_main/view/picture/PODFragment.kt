@@ -14,6 +14,7 @@ import coil.load
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import ru.geekbrains.lesson_1314_3_1_main.R
+import ru.geekbrains.lesson_1314_3_1_main.api.ApiActivity
 import ru.geekbrains.lesson_1314_3_1_main.databinding.FragmentMainBinding
 import ru.geekbrains.lesson_1314_3_1_main.view.MainActivity
 import ru.geekbrains.lesson_1314_3_1_main.view.settings.SettingsFragment
@@ -157,6 +158,7 @@ class PODFragment : Fragment() {
         when (item.itemId) {
             R.id.app_bar_fav -> {
                 Toast.makeText(context, "Favorite", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(context,ApiActivity::class.java))
             }
             R.id.app_bar_settings -> {
                 requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,SettingsFragment.newInstance()).addToBackStack("").commit()

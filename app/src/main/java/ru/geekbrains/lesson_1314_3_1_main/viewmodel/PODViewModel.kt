@@ -9,6 +9,7 @@ import retrofit2.Response
 import ru.geekbrains.lesson_1314_3_1_main.BuildConfig
 import ru.geekbrains.lesson_1314_3_1_main.repository.PODRetrofitImpl
 import ru.geekbrains.lesson_1314_3_1_main.repository.PODServerResponseData
+import ru.geekbrains.lesson_1314_3_1_main.repository.SolarFlareResponseData
 
 class PODViewModel(private val liveDataToObserve: MutableLiveData<PODData> = MutableLiveData(),
 private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()):ViewModel() {
@@ -22,25 +23,41 @@ private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()):ViewModel() {
         if(apiKey.isBlank()){
             //
         }else{
-            retrofitImpl.getRetrofitImpl().getPictureOfTheDay(apiKey).enqueue(
-                object : Callback<PODServerResponseData>{
-                    override fun onResponse(
-                        call: Call<PODServerResponseData>,
-                        response: Response<PODServerResponseData>
-                    ) {
-                        if(response.isSuccessful && response.body()!=null){
-                            liveDataToObserve.postValue(PODData.Success(response.body() as PODServerResponseData)) // FIXME костыль
-                        }else{
-                            // TODO HW
-                        }
-                    }
+            retrofitImpl.getPictureOfTheDay(apiKey,PODCallback)
+            retrofitImpl.getSolarFlareToday(apiKey,solarFlareCallback,"2021-09-01")
+        }
+    }
 
-                    override fun onFailure(call: Call<PODServerResponseData>, t: Throwable) {
-                        // TODO HW
-                    }
+    val PODCallback  = object : Callback<PODServerResponseData>{
+        override fun onResponse(
+            call: Call<PODServerResponseData>,
+            response: Response<PODServerResponseData>
+        ) {
+            if(response.isSuccessful && response.body()!=null){
+                liveDataToObserve.postValue(PODData.Success(response.body() as PODServerResponseData)) // FIXME костыль
+            }else{
+                // TODO HW
+            }
+        }
 
-                }
-            )
+        override fun onFailure(call: Call<PODServerResponseData>, t: Throwable) {
+            // TODO HW
+        }
+    }
+
+    val solarFlareCallback  = object : Callback<List<SolarFlareResponseData>>{
+        override fun onResponse(
+            call: Call<List<SolarFlareResponseData>>,
+            response: Response<List<SolarFlareResponseData>>
+        ) {
+            if(response.isSuccessful && response.body()!=null){
+            }else{
+                // TODO HW
+            }
+        }
+
+        override fun onFailure(call: Call<List<SolarFlareResponseData>>, t: Throwable) {
+            liveDataToObserve.postValue(PODData.Error(t))
         }
     }
 }
