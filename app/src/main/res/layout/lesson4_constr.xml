@@ -6,55 +6,58 @@
     android:layout_height="match_parent">
 
 
-
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/myGroup"
+    <Space
+        android:id="@+id/anchor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:constraint_referenced_ids="btn1,btn2,btn3"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent" />
+
 
     <Button
         android:id="@+id/btn1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        tools:layout_editor_absoluteX="44dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintCircle="@id/anchor"
+        app:layout_constraintCircleRadius="200dp"
+        app:layout_constraintCircleAngle="270"/>
 
     <Button
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="98dp" />
+        app:layout_constraintCircle="@id/anchor"
+        app:layout_constraintCircleRadius="200dp"
+        app:layout_constraintCircleAngle="288" />
 
     <Button
         android:id="@+id/btn3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3"
-        tools:layout_editor_absoluteX="118dp"
-        tools:layout_editor_absoluteY="199dp" />
+        app:layout_constraintCircle="@id/anchor"
+        app:layout_constraintCircleRadius="200dp"
+        app:layout_constraintCircleAngle="306"/>
 
     <Button
         android:id="@+id/btn4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="4"
-        tools:layout_editor_absoluteX="235dp"
-        tools:layout_editor_absoluteY="192dp" />
+        app:layout_constraintCircle="@id/anchor"
+        app:layout_constraintCircleRadius="200dp"
+        app:layout_constraintCircleAngle="324" />
 
     <Button
         android:id="@+id/btn5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintCircle="@id/anchor"
+        app:layout_constraintCircleRadius="220dp"
+        app:layout_constraintCircleAngle="345" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
