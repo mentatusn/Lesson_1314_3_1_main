@@ -17,6 +17,7 @@ import ru.geekbrains.lesson_1314_3_1_main.R
 import ru.geekbrains.lesson_1314_3_1_main.api.ApiActivity
 import ru.geekbrains.lesson_1314_3_1_main.api.ApiBottomActivity
 import ru.geekbrains.lesson_1314_3_1_main.databinding.FragmentMainBinding
+import ru.geekbrains.lesson_1314_3_1_main.databinding.FragmentMainStartBinding
 import ru.geekbrains.lesson_1314_3_1_main.view.MainActivity
 import ru.geekbrains.lesson_1314_3_1_main.view.settings.SettingsFragment
 import ru.geekbrains.lesson_1314_3_1_main.viewmodel.PODData
@@ -27,8 +28,8 @@ class PODFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
-    private var _binding: FragmentMainBinding? = null
-    val binding: FragmentMainBinding
+    private var _binding: FragmentMainStartBinding? = null
+    val binding: FragmentMainStartBinding
         get() {
             return _binding!!
         }
@@ -45,7 +46,7 @@ class PODFragment : Fragment() {
     ): View? {
         //return super.onCreateView(inflater, container, savedInstanceState)
 
-        _binding = FragmentMainBinding.inflate(inflater)
+        _binding = FragmentMainStartBinding.inflate(inflater)
         setActionBar()
         /*binding.scroll.setOnScrollChangeListener{it,y,u,i,o->
             binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END

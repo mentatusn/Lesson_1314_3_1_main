@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
 
+
         app:layout_constraintEnd_toEndOf="parent" />
 
 
@@ -22,6 +23,7 @@
         android:text="1"
         app:layout_constraintCircle="@id/anchor"
         app:layout_constraintCircleRadius="200dp"
+
         app:layout_constraintCircleAngle="270"/>
 
     <Button
