@@ -116,11 +116,15 @@ class PODFragment : Fragment() {
                 Toast.makeText(context, "PODData.Error", Toast.LENGTH_LONG).show()
             }
             is PODData.Loading -> {
-                Toast.makeText(context, "PODData.Loading", Toast.LENGTH_LONG).show()
+                //Toast.makeText(context, "PODData.Loading", Toast.LENGTH_LONG).show()
+                binding.imageView.load(R.drawable.progress_image_animation){
+
+                }
             }
             is PODData.Success -> {
                 binding.imageView.load(data.serverResponseData.url) { // квадратное становится прямоугольным
                     error(R.drawable.ic_load_error_vector)
+                    placeholder(R.drawable.progress_image_animation)
                 }
             }
         }
