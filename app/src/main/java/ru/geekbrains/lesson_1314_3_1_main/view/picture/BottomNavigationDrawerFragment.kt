@@ -10,6 +10,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ru.geekbrains.lesson_1314_3_1_main.R
 import ru.geekbrains.lesson_1314_3_1_main.databinding.BottomNavigationLayoutBinding
 import ru.geekbrains.lesson_1314_3_1_main.view.animations.AnimationsActivity
+import ru.geekbrains.lesson_1314_3_1_main.view.animations.AnimationsActivityBonus
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
@@ -38,7 +39,7 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 }
                 R.id.navigation_two ->{
                     activity?.let {
-                        //startActivity(Intent(it,AnimationsActivity::class.java))
+                        startActivity(Intent(it,AnimationsActivityBonus::class.java))
                     }
                 }
             }
