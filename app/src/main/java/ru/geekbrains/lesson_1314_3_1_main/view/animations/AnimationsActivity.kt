@@ -42,7 +42,7 @@ class AnimationsActivity : AppCompatActivity() {
             for(title in titles){
                 binding.transitionsContainer.addView(TextView(this).apply {
                     text= title
-                    ViewCompat.setTransitionName(this,title)
+                    ViewCompat.setTransitionName(this,title) // идентификатор view элемента
                     gravity = Gravity.CENTER_HORIZONTAL
                 })
             }
