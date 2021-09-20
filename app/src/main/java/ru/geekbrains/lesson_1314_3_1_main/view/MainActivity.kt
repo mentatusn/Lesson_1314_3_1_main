@@ -18,9 +18,5 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction().replace(R.id.container,PODFragment.newInstance()).commit()
            // supportFragmentManager.beginTransaction().replace(R.id.container,SettingsFragment.newInstance()).commit()
         }
-       /* btn.setOnclickListenter{
-             setMyTheme()
-             recreate()
-        }*/
     }
 }
