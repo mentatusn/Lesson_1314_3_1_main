@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.transition.*
@@ -18,6 +19,16 @@ class AnimationsActivity : AppCompatActivity() {
         binding = ActivityAnimationsFabBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setFAB()
+
+        binding.scrollView.setOnScrollChangeListener { _, _, _, _, _ ->
+            binding.header.isSelected = binding.scrollView.canScrollVertically(-1)
+            //то же самое что
+           /* binding.header.elevation =  if(binding.scrollView.canScrollVertically(-1)){
+                30f
+            } else {
+                0f
+            }*/
+        }
     }
 
     private fun setFAB() {
