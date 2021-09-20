@@ -28,8 +28,8 @@ class PODFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
-    private var _binding: FragmentMainStartBinding? = null
-    val binding: FragmentMainStartBinding
+    private var _binding: FragmentMainBinding? = null
+    val binding: FragmentMainBinding
         get() {
             return _binding!!
         }
@@ -46,7 +46,7 @@ class PODFragment : Fragment() {
     ): View? {
         //return super.onCreateView(inflater, container, savedInstanceState)
 
-        _binding = FragmentMainStartBinding.inflate(inflater)
+        _binding = FragmentMainBinding.inflate(inflater)
         setActionBar()
         /*binding.scroll.setOnScrollChangeListener{it,y,u,i,o->
             binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
