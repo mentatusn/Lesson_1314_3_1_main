@@ -33,7 +33,7 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
             when(it.itemId){
                 R.id.navigation_one ->{
                     activity?.let {
-                        startActivity(Intent(it,AnimationsActivity::class.java))
+                        startActivity(Intent(it, AnimationsActivity::class.java))
                     }
                 }
                 R.id.navigation_two ->{
