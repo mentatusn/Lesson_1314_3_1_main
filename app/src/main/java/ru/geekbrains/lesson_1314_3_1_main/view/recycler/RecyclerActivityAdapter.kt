@@ -15,9 +15,9 @@ import ru.geekbrains.lesson_1314_3_1_main.databinding.ActivityRecyclerItemMarsBi
 class RecyclerActivityAdapter(
     private var onListItemClickListener: OnListItemClickListener,
     private var data: List<Data>
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+) : RecyclerView.Adapter<BaseViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         return when(viewType){
             TYPE_EARTH->{
                 val binding: ActivityRecyclerItemEarthBinding =
@@ -42,26 +42,16 @@ class RecyclerActivityAdapter(
         return if(data[position].someDescription.isNullOrBlank()) TYPE_MARS else TYPE_EARTH
     }
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(getItemViewType(position)){
-            TYPE_EARTH->{
-                (holder as EarthViewHolder).bind(data[position])
-            }
-            TYPE_MARS->{
-                (holder as MarsViewHolder).bind(data[position])
-            }
-            TYPE_HEADER->{
-                (holder as HeaderViewHolder).bind(data[position])
-            }
-        }
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
+        (holder).bind(data[position])
     }
 
     override fun getItemCount(): Int {
         return data.size
     }
 
-    inner class EarthViewHolder(view: View):RecyclerView.ViewHolder(view){
-        fun bind(data: Data){
+    inner class EarthViewHolder(view: View):BaseViewHolder(view){
+        override fun bind(data: Data){
             ActivityRecyclerItemEarthBinding.bind(itemView).apply {
                 descriptionTextView.text = data.someDescription
                 wikiImageView.setOnClickListener {
@@ -71,8 +61,8 @@ class RecyclerActivityAdapter(
         }
     }
 
-    inner class MarsViewHolder(view: View):RecyclerView.ViewHolder(view){
-        fun bind(data: Data){
+    inner class MarsViewHolder(view: View):BaseViewHolder(view){
+        override fun bind(data: Data){
             // было itemView.findViewById<ImageView>(R.id.marsImageView).setOnClickListener {  }
             ActivityRecyclerItemMarsBinding.bind(itemView).apply {
                 marsImageView.setOnClickListener {
@@ -82,8 +72,8 @@ class RecyclerActivityAdapter(
         }
     }
 
-    inner class HeaderViewHolder(view: View):RecyclerView.ViewHolder(view){
-        fun bind(data: Data){
+    inner class HeaderViewHolder(view: View):BaseViewHolder(view){
+        override fun bind(data: Data){
             // было itemView.findViewById<ImageView>(R.id.marsImageView).setOnClickListener {  }
             ActivityRecyclerItemHeaderBinding.bind(itemView).apply {
                 root.setOnClickListener {
