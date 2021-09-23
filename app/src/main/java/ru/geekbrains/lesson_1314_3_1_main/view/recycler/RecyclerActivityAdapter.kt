@@ -63,7 +63,7 @@ class RecyclerActivityAdapter(
 
     fun appendItem(){
         data.add(generateItem())
-        notifyDataSetChanged()
+        notifyItemInserted(itemCount-1)
     }
 
     private fun generateItem() = Data("Mars","")
@@ -82,11 +82,11 @@ class RecyclerActivityAdapter(
 
         private fun addItem(){
             data.add(layoutPosition,generateItem())
-            notifyDataSetChanged()
+            notifyItemInserted(layoutPosition)
         }
         private fun removeItem(){
             data.removeAt(layoutPosition)
-            notifyDataSetChanged()
+            notifyItemRemoved(layoutPosition)
         }
 
     }
