@@ -34,7 +34,7 @@ class RecyclerActivity : AppCompatActivity() {
         coordinate3d.second
         coordinate3d.third
 
-        data.add(0,Pair(Data("Header"),false))
+        data.add(0,Pair(Data("Header",""),false))
         val adapter= RecyclerActivityAdapter(
             object : OnListItemClickListener {
                 override fun onItemClick(data: Data) {
