@@ -12,17 +12,15 @@ class RecyclerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val data = listOf(
-            Data("Earth"),
-            Data("Mars", ""),
-            Data("Earth"),
-            Data("Earth"),
-            Data("Mars", ""),
-            Data("Mars", ""),
-            Data("Earth"),
-            Data("Mars", "")
-        )
+        val data:MutableList<Data> = ArrayList()
+        repeat(10){
+            if(it%2==0){
+                data.add(Data("Earth"))
+            }else{
+                data.add(Data("Mars",""))
+            }
+        }
+        data.add(0,Data("Header"))
         binding.recyclerView.adapter = RecyclerActivityAdapter(
             object : OnListItemClickListener {
                 override fun onItemClick(data: Data) {
