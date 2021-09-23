@@ -8,6 +8,7 @@ import ru.geekbrains.lesson_1314_3_1_main.databinding.ActivityRecyclerBinding
 
 class RecyclerActivity : AppCompatActivity() {
     lateinit var binding: ActivityRecyclerBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerBinding.inflate(layoutInflater)
@@ -15,17 +16,19 @@ class RecyclerActivity : AppCompatActivity() {
         val data:MutableList<Data> = ArrayList()
         repeat(10){
             if(it%2==0){
-                data.add(Data("Earth"))
+                //data.add(Data("Earth"))
             }else{
                 data.add(Data("Mars",""))
             }
         }
         data.add(0,Data("Header"))
-        binding.recyclerView.adapter = RecyclerActivityAdapter(
+        val adapter= RecyclerActivityAdapter(
             object : OnListItemClickListener {
                 override fun onItemClick(data: Data) {
                     Toast.makeText(this@RecyclerActivity,data.someText,Toast.LENGTH_SHORT).show()
                 }
             }, data)
+        binding.recyclerView.adapter = adapter
+        binding.recyclerActivityFAB.setOnClickListener { adapter.appendItem()}
     }
 }
