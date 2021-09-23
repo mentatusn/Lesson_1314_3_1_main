@@ -11,6 +11,7 @@ import ru.geekbrains.lesson_1314_3_1_main.R
 import ru.geekbrains.lesson_1314_3_1_main.databinding.BottomNavigationLayoutBinding
 import ru.geekbrains.lesson_1314_3_1_main.view.animations.AnimationsActivity
 import ru.geekbrains.lesson_1314_3_1_main.view.animations.AnimationsActivityBonus
+import ru.geekbrains.lesson_1314_3_1_main.view.recycler.RecyclerActivity
 
 class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
 
@@ -40,6 +41,11 @@ class BottomNavigationDrawerFragment : BottomSheetDialogFragment() {
                 R.id.navigation_two ->{
                     activity?.let {
                         startActivity(Intent(it,AnimationsActivityBonus::class.java))
+                    }
+                }
+                R.id.navigation_third ->{
+                    activity?.let {
+                        startActivity(Intent(it,RecyclerActivity::class.java))
                     }
                 }
             }
