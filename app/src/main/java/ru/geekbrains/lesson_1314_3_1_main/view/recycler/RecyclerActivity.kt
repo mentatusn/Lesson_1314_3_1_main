@@ -10,6 +10,7 @@ import ru.geekbrains.lesson_1314_3_1_main.databinding.ActivityRecyclerBinding
 
 class RecyclerActivity : AppCompatActivity() {
     lateinit var binding: ActivityRecyclerBinding
+    lateinit var itemTouchHelper:ItemTouchHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,11 +40,17 @@ class RecyclerActivity : AppCompatActivity() {
                 override fun onItemClick(data: Data) {
                     Toast.makeText(this@RecyclerActivity,data.someText,Toast.LENGTH_SHORT).show()
                 }
+            },object: RecyclerActivityAdapter.OnStartDragListener {
+                override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+                    itemTouchHelper.startDrag(viewHolder)
+                }
+
             }, data)
         binding.recyclerView.adapter = adapter
         binding.recyclerActivityFAB.setOnClickListener { adapter.appendItem()}
 
-        ItemTouchHelper(ItemTouchHelperCallback(adapter)).attachToRecyclerView(binding.recyclerView)
+        itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(adapter))
+        itemTouchHelper.attachToRecyclerView(binding.recyclerView)
     }
 }
 
