@@ -5,6 +5,8 @@ import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Html
 import android.text.Spannable
 import android.text.SpannableString
@@ -15,6 +17,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.provider.FontRequest
+import androidx.core.provider.FontsContractCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -25,7 +29,6 @@ import ru.geekbrains.lesson_1314_3_1_main.R
 import ru.geekbrains.lesson_1314_3_1_main.api.ApiActivity
 import ru.geekbrains.lesson_1314_3_1_main.api.ApiBottomActivity
 import ru.geekbrains.lesson_1314_3_1_main.databinding.FragmentMainBinding
-import ru.geekbrains.lesson_1314_3_1_main.databinding.FragmentMainStartBinding
 import ru.geekbrains.lesson_1314_3_1_main.view.MainActivity
 import ru.geekbrains.lesson_1314_3_1_main.view.settings.SettingsFragment
 import ru.geekbrains.lesson_1314_3_1_main.viewmodel.PODData
@@ -193,6 +196,22 @@ class PODFragment : Fragment() {
                     spannable.setSpan(QuoteSpan(resources.getColor(R.color.colorAccent)),27,
                         29,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
 
+
+                    val request = FontRequest("com.google.android.gms.fonts",
+                    "com.google.android.gms","Aguafina Script",R.array.com_google_android_gms_fonts_certs)
+                    val fontCallback = object : FontsContractCompat.FontRequestCallback(){
+                        override fun onTypefaceRetrieved(typeface: Typeface?) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                                typeface?.let {
+                                    spannable.setSpan(TypefaceSpan(it),0,
+                                        spannable.length,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                                }
+                            }
+                        }
+                    }
+                    FontsContractCompat.requestFont(requireContext(),request,fontCallback,
+                        Handler(Looper.getMainLooper())
+                    )
 
                 }
             }
