@@ -5,6 +5,10 @@ import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.text.Html
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.BulletSpan
 import android.view.*
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -130,13 +134,29 @@ class PODFragment : Fragment() {
                     placeholder(R.drawable.progress_image_animation)
                 }
                 data.serverResponseData.explanation?.let{
-                    binding.includeLayoutTv.textView.text = it
+                    //binding.includeLayoutTv.textView.text = it
                     /*binding.includeLayoutTv.textView.typeface =
                         Typeface.createFromAsset(requireActivity().assets,"font/Robus-BWqOd.otf")
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         binding.includeLayoutTv.textView.typeface = resources.getFont(R.font.azeret)
                     }*/
+
+
+                    //маркировка через HTML
+                    /*val text = "My text <ul><li>bullet one</li><li>bullet two</li></ul>"
+                    binding.includeLayoutTv.textView.text = Html.fromHtml(text,Html.FROM_HTML_MODE_COMPACT)*/
+
+                    //маркировка через Spannable
+                    val spannable = SpannableStringBuilder("My text \nbullet one \nbullet two")
+                    spannable.setSpan(BulletSpan(20,resources.getColor(R.color.colorAccent)),
+                        9,18,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                    spannable.setSpan(BulletSpan(20,resources.getColor(R.color.colorAccent)),
+                        21,spannable.length,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+
+
+
+                    binding.includeLayoutTv.textView.text = spannable
                 }
             }
         }
