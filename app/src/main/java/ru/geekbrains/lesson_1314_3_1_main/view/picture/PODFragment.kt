@@ -7,9 +7,11 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Html
 import android.text.Spannable
+import android.text.SpannableString
 import android.text.SpannableStringBuilder
-import android.text.style.BulletSpan
+import android.text.style.*
 import android.view.*
+import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -148,15 +150,50 @@ class PODFragment : Fragment() {
                     binding.includeLayoutTv.textView.text = Html.fromHtml(text,Html.FROM_HTML_MODE_COMPACT)*/
 
                     //маркировка через Spannable
-                    val spannable = SpannableStringBuilder("My text \nbullet one \nbullet two")
+                   /* val spannable = SpannableStringBuilder("My text \nbullet one \nbullet two")
                     spannable.setSpan(BulletSpan(20,resources.getColor(R.color.colorAccent)),
                         9,18,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
                     spannable.setSpan(BulletSpan(20,resources.getColor(R.color.colorAccent)),
-                        21,spannable.length,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                        21,spannable.length,Spannable.SPAN_INCLUSIVE_INCLUSIVE)*/
+                    val spannableStart = SpannableStringBuilder(it)
+
+                    binding.includeLayoutTv.textView.setText(spannableStart,TextView.BufferType.EDITABLE)
+                    val spannable = binding.includeLayoutTv.textView.text as SpannableStringBuilder
+
+
+                    val start = 1
+                    val end  = 3
 
 
 
-                    binding.includeLayoutTv.textView.text = spannable
+                    spannable.setSpan(ForegroundColorSpan(resources.getColor(R.color.colorAccent)),start,
+                    end,Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    spannable.insert(end,"x")
+                    spannable.insert(start,"x")
+
+                    spannable.setSpan(ForegroundColorSpan(resources.getColor(R.color.colorPrimary)),5,
+                    20,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+
+                    spannable.setSpan(ForegroundColorSpan(resources.getColor(R.color.colorAccent)),20,
+                        35,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        spannable.setSpan(TypefaceSpan(resources.getFont(R.font.azeret)),20,
+                            25,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                    }
+
+                    spannable.setSpan(ForegroundColorSpan(resources.getColor(R.color.colorPrimary)),0,
+                        spannable.length,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                    spannable.setSpan(QuoteSpan(resources.getColor(R.color.colorAccent)),0,
+                        5,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                    spannable.setSpan(BackgroundColorSpan(resources.getColor(R.color.colorAccent)),1,
+                        5,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                    spannable.setSpan(QuoteSpan(resources.getColor(R.color.colorAccent)),14,
+                        25,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+                    spannable.setSpan(QuoteSpan(resources.getColor(R.color.colorAccent)),27,
+                        29,Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+
+
                 }
             }
         }
