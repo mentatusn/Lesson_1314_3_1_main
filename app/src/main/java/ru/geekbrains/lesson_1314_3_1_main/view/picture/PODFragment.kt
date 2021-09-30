@@ -30,20 +30,16 @@ import ru.geekbrains.lesson_1314_3_1_main.api.ApiActivity
 import ru.geekbrains.lesson_1314_3_1_main.api.ApiBottomActivity
 import ru.geekbrains.lesson_1314_3_1_main.databinding.FragmentMainBinding
 import ru.geekbrains.lesson_1314_3_1_main.view.MainActivity
+import ru.geekbrains.lesson_1314_3_1_main.view.ViewBindingFragment
 import ru.geekbrains.lesson_1314_3_1_main.view.settings.SettingsFragment
 import ru.geekbrains.lesson_1314_3_1_main.viewmodel.PODData
 import ru.geekbrains.lesson_1314_3_1_main.viewmodel.PODViewModel
 
 
-class PODFragment : Fragment() {
+class PODFragment : ViewBindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
 
-    private var _binding: FragmentMainBinding? = null
-    val binding: FragmentMainBinding
-        get() {
-            return _binding!!
-        }
 
     private val viewModel: PODViewModel by lazy {
         ViewModelProvider(this).get(PODViewModel::class.java)
@@ -55,14 +51,8 @@ class PODFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //return super.onCreateView(inflater, container, savedInstanceState)
-
-        _binding = FragmentMainBinding.inflate(inflater)
-        setActionBar()
-        /*binding.scroll.setOnScrollChangeListener{it,y,u,i,o->
-            binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-        }*/ // FIXME пытались исправить FAB
-        return binding.root
+        // что-то свое
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     private var isMain = true
@@ -220,7 +210,6 @@ class PODFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null
     }
 
     companion object {
