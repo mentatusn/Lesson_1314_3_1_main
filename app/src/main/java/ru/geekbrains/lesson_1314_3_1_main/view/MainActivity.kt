@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.Theme_Lesson_1314_3_1_main)
         setContentView(R.layout.activity_main)
 
+
+
         if(savedInstanceState==null){
             supportFragmentManager.beginTransaction().replace(R.id.container,PODFragment.newInstance()).commit()
         }
