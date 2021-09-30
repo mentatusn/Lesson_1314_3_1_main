@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         /*val themeID = getMyTheme();
         setTheme(themeID)*/
+        setTheme(R.style.Theme_Lesson_1314_3_1_main)
         setContentView(R.layout.activity_main)
 
         if(savedInstanceState==null){

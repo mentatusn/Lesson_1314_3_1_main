@@ -25,6 +25,7 @@
 
         <activity
             android:name=".view.MainActivity"
+            android:theme="@style/Theme.Lesson_1314_3_1_main.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
